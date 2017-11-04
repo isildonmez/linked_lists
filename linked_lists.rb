@@ -36,7 +36,7 @@ class LinkedList
   end
 
   def head
-  	@head.value
+    @head.value
   end
 
   def tail
