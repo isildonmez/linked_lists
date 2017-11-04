@@ -62,12 +62,35 @@ class LinkedList
     current.next_node = nil
   end
 
-  def contains?
+  def contains?(value)
+    current = @head
+    until (current.next_node == nil) ||
+          (current.value == value)
+      current = current.next_node
+    end
+    return true if current.value == value
+    return false
   end
 
   def find(data)
+    current = @head
+    index = 0
+    until (current.next_node == nil) ||
+          (current.value == data)
+      current = current.next_node
+      index += 1
+    end
+    return index if current.value == data
+    return nil
   end
 
   def to_s
+    current = @head
+    data = [current.value]
+    until (current.next_node == nil)
+      current = current.next_node
+      data << current.value
+    end
+    print "( #{data.join(' ) -> ( ')} ) -> nil"
   end
 end
